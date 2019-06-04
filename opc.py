@@ -74,7 +74,7 @@ while True:
 		um50.set_value(res['gt50um'])
 		um100.set_value(res['gt100um'])
 
-        out = subprocess.check_output(cmd,shell=True)
+        	out = subprocess.check_output(cmd,shell=True)
 		out = float(out[5:9])
 		print("CPU temp: ",out)
 
@@ -88,16 +88,16 @@ while True:
 		temperature = round(temperature,2)
 		timm = strftime("%H:%M:%S")
 
-        core_temp = client.get_node("ns=2;i=3")
-        su_temp = client.get_node("ns=2;i=4")
-        su_humd = client.get_node("ns=2;i=5")
-        timee = client.get_node("ns=2;i=6")
+		core_temp = client.get_node("ns=2;i=3")
+		su_temp = client.get_node("ns=2;i=4")
+		su_humd = client.get_node("ns=2;i=5")
+		timee = client.get_node("ns=2;i=6")
 
-        core_temp.set_value(out)
-        su_temp.set_value(temperature)
-        su_humd.set_value(humidity)
-        timee.set_value(timm)
+		core_temp.set_value(out)
+		su_temp.set_value(temperature)
+		su_humd.set_value(humidity)
+		timee.set_value(timm)
 
-        time.sleep(5)
+		time.sleep(5)
 	except KeyboardInterrupt:
 		break
